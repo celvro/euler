@@ -2,14 +2,28 @@ from math import sqrt
 
 
 def prime(n):
-    if n==2 or n==3:
-        return True
+    return n in get_primes(n)
+
+
+def prime(n):
     if n<2:
         return False
-    x = [2, 3]
-    for i in xrange(5, int(sqrt(n))+1, 6):
-        x.extend((i, i+2))
-    return all(n%i for i in x)
+    return all(n%i for i in [2] + range(3, int(sqrt(n))+1, 2))
+
+
+# return all primes up to n, fast as hell
+def get_primes(n):
+    numbers = range(3, n+1, 2)
+    half = n//2
+    initial = 4
+
+    for step in xrange(3, n+1, 2):
+        for i in xrange(initial, half, step):
+            numbers[i-1]=0
+        initial += 2*(step+1)
+
+        if initial > half:
+            return [2] + filter(None, numbers)
 
 
 def factors(n):
