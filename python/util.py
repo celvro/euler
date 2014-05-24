@@ -71,3 +71,9 @@ def n_choose_r(n, r):
     numer = prod( range(n, n-r, -1) )
     denom = prod( range(1, r+1) )
     return numer//denom
+
+def max_path(n):
+    for i in range(len(n)-2, -1, -1):  # start from the bottom and combine
+        for j in range(len(n[i])):
+            n[i][j] += max(n[i+1][j], n[i+1][j+1])
+    return n[0][0]
