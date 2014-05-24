@@ -35,3 +35,7 @@ def factors(n):
 
 def palindrome(n):
     return n == int(str(n)[::-1])
+
+
+def prod(n): # return product of a list
+    return reduce(lambda a,b: a*b, n)
