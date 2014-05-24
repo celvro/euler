@@ -2,10 +2,6 @@ from math import sqrt
 
 
 def prime(n):
-    return n in get_primes(n)
-
-
-def prime(n):
     if n<2:
         return False
     return all(n%i for i in [2] + range(3, int(sqrt(n))+1, 2))
