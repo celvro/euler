@@ -1,5 +1,4 @@
-def mult(a, b):
-    return int(a)*int(b)
+from util import prod
 
 num = """73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
@@ -22,10 +21,8 @@ num = """73167176531330624919225119674426574742355349194934
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450""".replace("\n", "")
 
-maxprod = 0
+x = []
 for i in range(len(num)-13):
-    prod = reduce(mult, num[i:i+13])
-    if prod > maxprod:
-        maxprod = prod
+    x.append(prod(int(x) for x in num[i:i+13]))
 
-print maxprod
+print max(x)
