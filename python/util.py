@@ -1,4 +1,5 @@
 from math import sqrt
+from math import factorial
 
 def prime(n):
     if n<2:
@@ -45,8 +46,8 @@ def divisors(n):
 def palindrome(n):
     return n == int(str(n)[::-1])
 
-
-def prod(n): # return product of a list
+# return product of a list
+def prod(n):
     return reduce(lambda a,b: a*b, n)
 
 
@@ -72,8 +73,28 @@ def n_choose_r(n, r):
     denom = prod( range(1, r+1) )
     return numer//denom
 
+# return max path through a triangle pyramid like pascal's
 def max_path(n):
     for i in range(len(n)-2, -1, -1):  # start from the bottom and combine
         for j in range(len(n[i])):
             n[i][j] += max(n[i+1][j], n[i+1][j+1])
     return n[0][0]
+
+# return list of all amicable numbers below n
+def amicable_numbers(n):
+    x = []
+    i = 0
+    while i < n:
+        d = sum(divisors(i))-i
+        if sum(divisors(d))-d == i and i!=d:
+            x.extend((i,d))
+            i = d+1
+        i += 1
+    return x
+
+# return the (n+1)th permutation of s
+def nth_perm(s, n):
+    if len(s)<2:
+        return s
+    quot, n = divmod(n, factorial(len(s)-1))
+    return s[quot] + nth_perm(s[:quot] + s[quot+1:], n)
