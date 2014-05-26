@@ -44,7 +44,7 @@ def divisors(n):
 
 
 def palindrome(n):
-    return n == int(str(n)[::-1])
+    return str(n) == str(n)[::-1]
 
 # return product of a list
 def prod(n):
@@ -120,4 +120,19 @@ def circular_prime(n):
     for i in range(len(num)):
         if not prime(int(num)): return False
         num = num[-1] + num[:-1]
+    return True
+
+def truncatable_prime(n):
+    # left to right
+    num = str(n)
+    while num:
+        if not prime(int(num)): return False
+        num = num[1:]
+
+    # right to left
+    num = str(n)
+    while num:
+        if not prime(int(num)): return False
+        num = num[:-1]
+
     return True
