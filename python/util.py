@@ -98,3 +98,10 @@ def nth_perm(s, n):
         return s
     quot, n = divmod(n, factorial(len(s)-1))
     return s[quot] + nth_perm(s[:quot] + s[quot+1:], n)
+
+# length of n's reciprocal is smallest k such that n divides 10^k - 1
+def recip_len(n):
+    for k in xrange(1,n):
+        if (10**k - 1)%n == 0:
+            return k
+    return 1
