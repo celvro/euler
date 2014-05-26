@@ -2,8 +2,8 @@ from math import sqrt
 from math import factorial
 
 def prime(n):
-    if n<2:
-        return False
+    if n<2: return False
+    if n==2: return True
     return all(n%i for i in [2] + range(3, int(sqrt(n))+1, 2))
 
 
@@ -105,3 +105,19 @@ def recip_len(n):
         if (10**k - 1)%n == 0:
             return k
     return 1
+
+def pandigital(n, length):
+    return ''.join(sorted(str(n))) == ''.join(str(x) for x in range(1,length+1))
+
+# whether n is equal to the sum of factorial of it's digits
+def digit_factorial(n):
+    if n<3: return False
+    return n == sum(factorial(int(x)) for x in str(n))
+
+# return whether all rotations of n are prime
+def circular_prime(n):
+    num = str(n)
+    for i in range(len(num)):
+        if not prime(int(num)): return False
+        num = num[-1] + num[:-1]
+    return True
