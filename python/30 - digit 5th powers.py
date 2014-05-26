@@ -1,11 +1,3 @@
-num=0
-for i in range(2,300000):
-    sum=0
-    j=i
-    while j>0:
-        digit=j%10
-        sum+=digit**5
-        j=int(j/10)
-    if sum == i:
-        num+=sum
-print num
+LIMIT = 6 * 9**5
+
+print sum(i for i in xrange(2, LIMIT) if i==sum(int(x)**5 for x in str(i)))
