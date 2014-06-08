@@ -140,15 +140,16 @@ def truncatable_prime(n):
 # Return sum of character values where A=1, Z=26
 def word_value(str):
     return sum(ord(c)-64 for c in str)
-    
-def is_triangle(n):
-    i = int(sqrt(2*n))
-    return 2*n == i*(i+1)
 
 def sub_str_divisible(s):
     primes = [2,3,5,7,11,13,17]
     return all(int(s[i:i+3])%primes[i-1]==0 for i in range(1,8))
 
+def is_triangle(n):
+    return ((-1+sqrt(1+8*n))/2).is_integer()
+
 def is_pentagonal(n):
-    num = (1+sqrt(1+24*n))/6
-    return num.is_integer()
+    return ((1+sqrt(1+24*n))/6).is_integer()
+
+def is_hexagonal(n):
+    return ((1+sqrt(1+8*n))/4).is_integer()
