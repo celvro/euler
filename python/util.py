@@ -136,3 +136,7 @@ def truncatable_prime(n):
         num = num[:-1]
 
     return True
+
+def is_pentagonal(n):
+    num = (1+sqrt(1+24*n))/6
+    return num.is_integer()
