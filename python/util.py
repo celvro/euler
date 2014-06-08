@@ -149,3 +149,6 @@ def sub_str_divisible(s):
     primes = [2,3,5,7,11,13,17]
     return all(int(s[i:i+3])%primes[i-1]==0 for i in range(1,8))
 
+def is_pentagonal(n):
+    num = (1+sqrt(1+24*n))/6
+    return num.is_integer()
