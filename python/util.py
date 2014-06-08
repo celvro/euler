@@ -136,3 +136,15 @@ def truncatable_prime(n):
         num = num[:-1]
 
     return True
+
+# Return sum of character values where A=1, Z=26
+def word_value(str):
+    return sum(ord(c)-64 for c in str)
+    
+def is_triangle(n):
+    i = int(sqrt(2*n))
+    return 2*n == i*(i+1)
+
+def sub_str_divisible(s):
+    primes = [2,3,5,7,11,13,17]
+    return all(int(s[i:i+3])%primes[i-1]==0 for i in range(1,8))
