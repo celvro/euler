@@ -148,3 +148,4 @@ def is_triangle(n):
 def sub_str_divisible(s):
     primes = [2,3,5,7,11,13,17]
     return all(int(s[i:i+3])%primes[i-1]==0 for i in range(1,8))
+
