@@ -19,7 +19,9 @@ def get_primes(n):
         initial += 2*(step+1)
 
         if initial > half:
-            return [2] + filter(None, numbers)
+            p = [2] + filter(None, numbers)
+            if not prime(n): p.remove(n)
+            return p
 
 
 # return prime factors
