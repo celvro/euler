@@ -20,7 +20,9 @@ def get_primes(n):
 
         if initial > half:
             p = [2] + filter(None, numbers)
-            if not prime(n): p.remove(n)
+            if not prime(n): 
+                try: p.remove(n)
+                except ValueError: pass
             return p
 
 
