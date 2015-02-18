@@ -113,7 +113,7 @@ def recip_len(n):
 def pandigital(n, length):
     return ''.join(sorted(str(n))) == ''.join(str(x) for x in range(1,length+1))
 
-# whether n is equal to the sum of factorial of it's digits
+# whether n is equal to the sum of factorial of its digits
 def digit_factorial(n):
     if n<3: return False
     return n == sum(factorial(int(x)) for x in str(n))
